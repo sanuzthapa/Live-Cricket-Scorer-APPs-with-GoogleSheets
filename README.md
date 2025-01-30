@@ -39,8 +39,10 @@ This project aims to create a **Cricket Scoring App** with a live overlay featur
 
 ## 📚 1. Introduction
 
-This project provides a **real-time cricket scoring solution** that integrates Google Sheets with live streaming platforms. The primary goal is to enable broadcasters and streamers to display live scores dynamically without needing additional software.
-
+This project provides a **real-time cricket scoring solution** that integrates Google Sheets with live streaming platforms. The primary goal is to enable broadcasters and streamers to display live scores dynamically without needing additional software.<br>
+link to googleSpreadsheet :<br>
+https://docs.google.com/spreadsheets/d/1P8D53BJzG2f3YVobqROcemvLqAHApBPYY9wumSOQwiY/edit?gid=0#gid=0 <br>
+link to Scoreboard Web page : <br>https://sanuzthapa.github.io/images/psplscore.html<br>
 ![ScoreBoard](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/screenboard_preview.png)
 
 ---
