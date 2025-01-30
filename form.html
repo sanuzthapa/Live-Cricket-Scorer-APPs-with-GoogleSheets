@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+
+  <style>
+
+    .live-score-widget {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    width: 300px;
+    font-family: 'Itim', cursive;
+}
+
+.match-title {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0;
+        font-family: 'Permanent Marker', cursive;
+}
+
+.match-info {
+    font-size: 0.9em;
+    margin: 5px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    grid-gap: 0px;
+    white-space: nowrap; /* Prevent line breaks */
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.highlight {
+    background-color: #332;
+    color: #fff;
+    padding: 1px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    white-space: nowrap; /* Prevent line breaks */
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.batsman-info {
+    font-size: 0.9em;
+    margin-top: 5px 0;
+    padding:10px;
+    background-color:#5e5e53;
+    border-radius: 5px;
+    margin-bottom:5px;
+}
+
+.batsman {
+    display: flex;
+    font-size: 1em;
+    margin-bottom: 1px;
+    font-weight:400px;
+}
+
+.player {
+    width: 90%; /* 50% for player name */
+}
+
+#b1S,
+#b2S,
+#b1B,
+#b2B {
+    width: 8%; /* 25% for scores and balls */
+    text-align: center;
+}
+
+.ball-by {
+    list-style: none;
+    /* padding: 0; */
+    display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    background-color: #331;
+    color: #fff;
+    padding: 1px;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    align-items:center;
+    text-align:centre;
+    
+}
+
+.ball-details {
+    background-color: #4d4d4d;
+    margin-top: 2px;
+    max-width: 100%;
+    margin-bottom: 2px;
+    padding-bottom: 5px;
+    list-style: none;
+    display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    background-color: #332;
+    color: #fff;
+    padding: 1px;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+}
+
+.ball-by li {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    margin-right: 5px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+}
+
+.ball-by .six {
+    background-color: #F7EC08;
+    color: #000;
+}
+
+.ball-by .four {
+    background-color: #F5EE61;
+    color: #000;
+}
+
+.ball-by .extras {
+    background-color: #234466;
+    color: #000;
+}
+
+.ball-by .nb {
+    background-color: #2C80DA;
+    color: #000;
+}
+
+.ball-by .wd {
+    background-color: #386CA2;
+    color: #000;
+}
+
+.ball-by .wicket {
+    background-color: #F80303;
+    color: #000;
+}
+
+.ball-by .singles {
+    background-color: #94F724;
+    color: #000;
+}
+
+.ball-by .dot {
+    background-color: #D3D0E5;
+    color: #000;
+}
+
+.score-status {
+    font-size: 0.9em;
+    margin: 1px 0;
+}
+
+.status-scroll {
+    background-color: #666;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.credit-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1px; /* Add margin to give some space */
+}
+
+.credit {
+    color: #fff;
+    padding: 1px;
+    border-radius: 5px;
+    border-bottom: 1px solid red;
+    border-top: 1px solid red;
+    font-size: 0.9em;
+    text-align: center;
+    font-family: 'Itim', cursive;
+}
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row frame">
+
+      
+      
+      
+    
+      <!-- <h6 class="mb-4 text-center" id="thisover">Batsman2</h6>
+       -->
+
+      <body style="background-color: transparent;">
+    <div class="live-score-widget">
+        <!-- Live Score Information -->
+        <p class="match-title">
+            <span class="live-label">PSPL SEASON 4 2080</span>
+        </p>
+<p class="match-info" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; border: 1px solid red; border-radius: 5px;">
+   <span class="highlight" style="display: flex; justify-content: center; align-items: center; border-bottom: 1px solid red; border-right: 1px solid red; text-align: center; padding: 10px;">
+    <span id="titles">Team </span> : 
+    <span id="subtitles">Runs </span> -
+    <span id="wickets">Wickets</span>
+</span>
+
+<span class="highlight" style="display: flex; align-items: center; border-bottom: 1px solid red; border-left: 0px solid red; text-align: center; padding: 10px; overflow: hidden; white-space: nowrap; position: relative;">
+    <span style="display: inline-block; animation: marquee 5s linear infinite;">
+        CR: <span id="crr"></span> | RR: <span id="rrr"></span>
+    </span>
+</span>
+
+<style>
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+</style>
+
+
+    <span class="highlight" style="display: flex; justify-content: center; align-items: center; border-top: 1px solid red; border-right: 0px solid red; text-align: center; padding: 10px;">
+        OVER: <span id="runningOvers"></span>.<span id="runningBalls"></span>/<span id="totalOvers"></span>
+    </span>
+    <span class="highlight" style="display: flex; justify-content: center; align-items: center; border-top: 1px solid red; border-left: 1px solid red; text-align: center; padding: 10px;">
+        Target: <span id="target">O</span>
+    </span>
+</p>
+
+<div class="batsman-info" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; padding: 10px; border: 1px solid red; border-radius: 5px;">
+    <div class="batsman striker" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; background-color: #333; border-radius: 5px; text-align: center; font-weight: bold;">
+        <span class="player" id="batsman1"></span>
+        <span id="b1S"></span>
+        <span id="b1B"></span>
+    </div>
+    <div class="batsman" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px; background-color: #333; border-radius: 5px; text-align: center;">
+        <span class="player" id="batsman2"></span>
+        <span id="b2S"></span>
+        <span id="b2B"></span>
+    </div>
+</div>
+
+ <!-- <div class="ball-details">
+            <ul id="bowlername">bowlerName</ul>
+         <ul style="font-weight:bold;" class="ball-by" id="thisover">
+            
+          </ul>
+        </div> -->
+
+        <div class="ball-details" style="margin-top: -2px; padding: 0; border-radius: 5px;border-bottom: 1px solid red;border-top: 1px solid red; align-items: center"> <!-- Removed extra gaps -->
+        <div style="display: flex; flex-direction: column; height: 100%;">
+      <!-- 40% for Bowler Name -->
+        <div style="display: flex; flex-direction: row; align-items: center; padding: 0;">
+    <img src="https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/cricketball.png" alt="Icon" style="width: 100%; height: 100%; max-width: 16px; max-height: 16px;">
+    <ul id="bowlername" style="margin: 0; padding-right: 2px;color:#fff;">
+        <!-- Content for bowlerName -->
+    </ul>
+</div>
+
+
+
+    <!-- 60% for Ball by Ball updates -->
+    <div style="flex: 100%; padding: 0;"> <!-- Removed extra gaps -->
+      <ul style="font-weight:bold; margin: 0;" class="ball-by" id="thisover"></ul> <!-- Removed extra gaps -->
+    </div>
+  </div>
+</div>
+
+
+
+          <div class="score-status">
+          <div class="status-scroll" id="message"></div>
+          <div class="credit-container">
+          <span class="credit">Designed By Sanuz Thapa for Scoring </span>
+</div>
+
+
+        </div>
+    </div>
+</body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let title = document.getElementById('titles');
+    let subtit = document.getElementById('subtitles');
+    let wickets = document.getElementById('wickets');
+    let target = document.getElementById('target');
+    let batsman1 = document.getElementById('batsman1');
+    let batsman2 = document.getElementById('batsman2');
+    let thisover = document.getElementById('thisover');
+    let totalOvers = document.getElementById('totalOvers');
+    let runningBalls = document.getElementById('runningBalls');
+    let runningOvers = document.getElementById('runningOvers');
+    let crr= document.getElementById('crr');
+    let rrr=document.getElementById('rrr');
+    let message= document.getElementById('message');
+
+    let batsman1Score=document.getElementById('b1S');
+    let batsman2Score=document.getElementById('b2S');
+    let batsman1Balls=document.getElementById('b1B');
+    let batsman2Balls=document.getElementById('b2B');
+    let bowlername=document.getElementById('bowlername');
+
+    function populateThisOver(thisoverValues) {
+      let thisoverList = document.querySelector(".ball-by");
+
+      // Clear any existing content in the list
+      thisoverList.innerHTML = "";
+
+      for (let value of thisoverValues) {
+        let li = document.createElement("li");
+        li.textContent = value;
+
+        // Apply CSS classes based on the value
+        if (value === 1 || value === 2 || value === 3) {
+          li.className = "singles";
+        } else if (value===0){
+          li.className = "dot";
+        }else if (value === 6) {
+          li.className = "six";
+        } else if (value === "W") {
+          li.className = "wicket";
+        } else if (value===4){
+          li.className ="four";
+        } else if (value.endsWith("lb")) {
+          li.className = "extras";
+        } else if (value.endsWith("nb")){
+          li.className ="nb";
+        } else if (value.endsWith("wd")){
+          li.className ="wd";
+        }
+
+        thisoverList.appendChild(li);
+      }
+    }
+
+    setInterval(function () {
+      google.script.run
+        .withSuccessHandler(Score => {
+          title.innerHTML = Score[0];
+          subtit.innerHTML = Score[1];
+          wickets.innerHTML = Score[2];
+          target.innerHTML = Score[3];
+          batsman1.innerHTML = Score[4];
+          batsman2.innerHTML = Score[5];
+          populateThisOver(Score[6]);
+          totalOvers.innerHTML= Score[7];
+          runningBalls.innerHTML=Score[8];
+          runningOvers.innerHTML= Score[9];
+          crr.innerHTML=Score[10];
+          rrr.innerHTML=Score[11];
+          message.innerHTML=Score[12];
+          batsman1Score.innerHTML=Score[13];
+          batsman2Score.innerHTML=Score[14];
+          batsman1Balls.innerHTML=Score[15];
+          batsman2Balls.innerHTML=Score[16];
+          bowlername.innerHTML = Score[17]; // Assuming A10 is in the 18th position of your array
+
+        })
+        .setAutomatically();
+    }, 10);
+  });
+</script>
+
+</body>
+
+</html>
