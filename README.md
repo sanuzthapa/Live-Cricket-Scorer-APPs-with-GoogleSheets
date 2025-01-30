@@ -1,4 +1,4 @@
-# Live Cricket Scorer App with Google Sheets & Live Streaming Overlay
+# 🏏 Live Cricket Scorer App with Google Sheets & Live Streaming Overlay
 
 ## 👋 Hi there, I'm **Sanuz Thapa**
 
@@ -24,23 +24,25 @@ This project aims to create a **Cricket Scoring App** with a live overlay featur
 
 ## 📂 Table of Contents
 
-1. [Introduction](#introduction)
-2. [Google Sheets Setup](#google-sheets-setup)
-3. [Implementation](#implementation)
-4. [Generating Live Links & Deployment](#generating-live-links--deployment)
-5. [Hosting on a Server](#hosting-on-a-server)
-6. [Integrating with Live Streaming](#integrating-with-live-streaming)
-7. [Adjustments & Settings](#adjustments--settings)
-8. [Going Live](#going-live)
-9. [Video Demo](#video-demo)
-10. [Conclusion](#conclusion)
+1. [Introduction](#-introduction)
+2. [Google Sheets Setup](#-google-sheets-setup)
+3. [Implementation](#-implementation)
+4. [Generating Live Links & Deployment](#-generating-live-links--deployment)
+5. [Hosting on a Server](#-hosting-on-a-server)
+6. [Integrating with Live Streaming](#-integrating-with-live-streaming)
+7. [Adjustments & Settings](#-adjustments--settings)
+8. [Going Live](#-going-live)
+9. [Video Demo](#-video-demo)
+10. [Conclusion](#-conclusion)
 
 ---
 
 ## 📚 1. Introduction
 
 This project provides a **real-time cricket scoring solution** that integrates Google Sheets with live streaming platforms. The primary goal is to enable broadcasters and streamers to display live scores dynamically without needing additional software.
-![ScoreBoard](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/screenboard_preview.png)
+
+![ScoreBoard](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/screenboard_preview.png){width=800}
+
 ---
 
 ## 📃 2. Google Sheets Setup
@@ -48,55 +50,67 @@ This project provides a **real-time cricket scoring solution** that integrates G
 1. Create a **Google Sheet** with columns for: Batsmen, Bowlers, Runs, Wickets, Overs, and Extras.
 2. Use built-in formulas for automatic calculations.
 3. Enable **Google Apps Script** to create dynamic score updates.
-![ScoreBoard](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/ScorerGUI.png)
 
-This is the scorebard GUI with all the features dynamically controlled and calculatyed for the scoreer in backend.
+![ScoreBoard](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/ScorerGUI.png)
+
+This is the scoreboard GUI with all the features dynamically controlled and calculated for the scorer in the backend.
+
 ---
 
 ## 💻 3. Implementation
 
-- Click on Extensions > App Scripts <br>
-  ![AppScript](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/appscript.png)
-  <br>
-  
-- New windows will be loaded to Deploy the scipts:
-  <p align="left">
-  <img src="https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/AppScript_ProjectSection.png" width="auto">
-</p>
+- Click on **Extensions > Apps Script**
 
-- Next Step is to Deploy the project and gemnerate the link of deployment.
-- 
+  ![AppScript](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/appscript.png)
+  
+- A new window will load to deploy the scripts:
+
+  ![AppScript Project](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/AppScript_ProjectSection.png)
+
+- Next, deploy the project and generate the deployment link.
 
 ---
 
 ## 💾 4. Generating Live Links & Deployment
-![Deploy](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/deployment1.png)
+
+![Deploy](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/deployment1.png)
+
 - **Deploy > New Deployment**
-![Deploy2](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/deployment2.png)
-**Add name, Description and access and deploy and copy the link or Simply lcik on the link**<br>
-![ScoreBoard](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/screenboard_preview.png)
+- Add name, description, and access permissions, then deploy and copy the link.
+
+![Deploy2](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/deployment2.png)
+
 ---
 
-## 🛡️ 5. Hosting on a Server
-**(Optinal yet reccommended)**
+## 🛡️ 5. Hosting on a Server (Optional but Recommended)
+
 - Use **free web hosting platforms** (e.g., GitHub Pages, Firebase, or any free hosting service).
 - Ensure that the server fetches the live data from Google Sheets periodically.
+- In my case, I used **GitHub Pages** ([Live Scoreboard](https://sanuzthapa.github.io/images/psplscore.html)) to host the scoreboard for later integration into Prisma/OBS for live streaming overlay.
 
 ---
 
 ## 🎥 6. Integrating with Live Streaming
-![ScoreBoard](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/screenboard_preview.png)
-- Connect **Prisma Live Studio** with the hosted JSON API.
-- Use **OBS Studio or similar tools** to overlay the live scores on the stream.
-- Customize the scoreboard appearance for better visibility.
 
+![ScoreBoard](https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/screenboard_preview.png)
+
+- In **Prisma Live Studio**, navigate to the live streaming section and add a new widget → **Web**.
+  <div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/fetch1.png" width="300" height="auto">
+  <img src="https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/fetch2.png" width="300" height="auto">
+</div>
+
+
+- Fill in the details:
+  - **URL**: The link generated (e.g., GitHub link)
+  - **Title**: Any custom title for your overlay
+<img src="https://github.com/sanuzthapa/Live-Cricket-Scorer-APPs-with-GoogleSheets/blob/main/resources/InsertValues.png" width="300" height="auto">
 ---
 
 ## 🔧 7. Adjustments & Settings
 
 - Fine-tune fonts, colors, and positioning of overlays.
-- Adjust refresh intervals to optimize live updates.
-- Ensure cross-device compatibility.
+- Use **size adjustments** to fit the overlay properly on the stream.
 
 ---
 
@@ -110,7 +124,7 @@ This is the scorebard GUI with all the features dynamically controlled and calcu
 
 ## 🎬 9. Video Demo
 
-A **step-by-step video tutorial** will be added to demonstrate the full process of setting up and deploying this system. Stay tuned!
+A complete video of the working project can be found here (via a recorded match from YouTube).
 
 ---
 
@@ -132,5 +146,3 @@ This project provides an efficient and cost-effective solution for live cricket 
 
 - 📧 Email: [sanuzh.thapa@gmail.com](mailto:sanuzh.thapa@gmail.com)
 - 🌐 LinkedIn: [Sanuz Thapa](https://linkedin.com/in/sanuz-thapa)
-
----
